@@ -8,6 +8,8 @@ on:
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: 리포지토리 체크아웃
         uses: actions/checkout@v3
@@ -19,7 +21,7 @@ jobs:
 
       - name: 필요한 패키지 설치
         run: |
-          pip install requests beautifulsoup4
+          pip install -r requirements.txt
 
       - name: 실시간 검색어 Top 10 가져오기
         run: |
